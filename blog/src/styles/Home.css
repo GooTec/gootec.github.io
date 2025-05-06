@@ -1,0 +1,151 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  padding: 20px;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+.profile-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2a63a1;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.profile-title {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 0;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 60px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: #2a63a1;
+  color: white;
+  border: 2px solid transparent;
+}
+
+.cv-button {
+  background-color: #2a63a1;
+  color: white;
+}
+
+.cv-button:hover {
+  background-color: #1a4978;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(42, 99, 161, 0.3);
+  border-color: #1a4978;
+}
+
+.projects-button {
+  background-color: #34a853;
+  color: white;
+}
+
+.projects-button:hover {
+  background-color: #2a8a43;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(52, 168, 83, 0.3);
+  border-color: #2a8a43;
+}
+
+.time-button {
+  background-color: #e67e22;
+  color: white;
+  width: 280px; /* 더 넓은 너비 적용 */
+}
+
+.time-button:hover {
+  background-color: #d35400;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(230, 126, 34, 0.3);
+  border-color: #d35400;
+  width: 280px; /* 호버 시에도 너비 유지 */
+}
+
+.time-button i, .cv-button i, .projects-button i {
+  margin-right: 12px;
+  font-size: 1.3rem;
+}
+
+
+
+@media (max-width: 768px) {
+  .profile-name {
+    font-size: 2rem;
+  }
+  
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .nav-button {
+    width: 240px;
+  }
+  
+  .time-button {
+    width: 280px;
+  }
+  
+  .navigation-buttons {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation-buttons {
+    width: 100%;
+  }
+  
+  .nav-button {
+    width: 95%;
+    max-width: 280px;
+    font-size: 1.2rem;
+  }
+  
+  .time-button {
+    max-width: 320px;
+  }
+}
