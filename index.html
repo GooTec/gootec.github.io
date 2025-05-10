@@ -2,44 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=https://gootec.github.io">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting to Taewan Goo's Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f8f9fa;
-        }
-        .container {
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            color: #2a63a1;
-        }
-        p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-        a {
-            color: #2a63a1;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>Taewan Goo's Time Machine</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Redirecting to Taewan Goo's Website</h1>
-        <p>If you are not redirected automatically, please click <a href="https://gootec.github.io">here</a>.</p>
+    <div class="time-machine-container">
+        <!-- Time Machine Timeline -->
+        <div class="timeline">
+            <div class="year-labels">
+                <!-- Year markers will be dynamically added with JavaScript -->
+            </div>
+            <div class="timeline-scroll">
+                <div class="timeline-handle"></div>
+            </div>
+        </div>
+        
+        <!-- File System Window -->
+        <div class="file-system-window">
+            <div class="window-header">
+                <div class="window-title">Timeline Explorer</div>
+                <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                </div>
+            </div>
+            <div class="window-sidebar">
+                <div class="sidebar-title">CATEGORIES</div>
+                <ul class="category-list">
+                    <li class="category" data-category="academic">
+                        <span class="category-dot academic"></span>
+                        Academic
+                    </li>
+                    <li class="category" data-category="books">
+                        <span class="category-dot books"></span>
+                        Books
+                    </li>
+                    <li class="category" data-category="activity">
+                        <span class="category-dot activity"></span>
+                        Activity
+                    </li>
+                    <li class="category" data-category="development">
+                        <span class="category-dot development"></span>
+                        Software Development
+                    </li>
+                </ul>
+            </div>
+            <div class="window-content">
+                <div class="files-container">
+                    <!-- Files will be dynamically populated based on the selected year -->
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Modal for displaying file content -->
+    <div class="modal" id="fileModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <div id="modalCategory" class="modal-category"></div>
+            </div>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

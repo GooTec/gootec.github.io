@@ -1,46 +1,99 @@
-# Deployment Instructions
+# Deployment Instructions for Taewan Goo's Website
 
-This document provides instructions for deploying the updated website.
+This document provides instructions for deploying the updated website with a home page featuring your profile and the Projects page.
 
-## Setup and Deployment
+## Setup and Prerequisites
 
-1. **Initial Setup**
-   - The website is now a React application located in the `/blog` directory
-   - The homepage has been set to "https://gootec.github.io" in package.json
+1. **Profile Image Setup**
+   - Copy your profile image to the public folder:
+   ```bash
+   cp /Users/twgoo/Downloads/profile.png /Users/twgoo/Desktop/gootec.github.io/blog/public/
+   ```
 
-2. **Local Development**
-   - Navigate to the `/blog` directory: `cd /Users/twgoo/Desktop/gootec.github.io/blog`
-   - Install dependencies: `npm install`
-   - Start the development server: `npm start`
-   - View the site at: `http://localhost:3000`
+   - To use your profile image as a favicon, generate favicon files from your profile image using a tool like [favicon.io](https://favicon.io/) or [realfavicongenerator.net](https://realfavicongenerator.net/), then replace the existing icon files in the public directory.
 
-3. **Deployment**
-   - Navigate to the `/blog` directory: `cd /Users/twgoo/Desktop/gootec.github.io/blog`
-   - Build and deploy the site: `npm run deploy`
-   - This will use gh-pages to deploy the site to GitHub Pages
+2. **Install Dependencies**
+   ```bash
+   cd /Users/twgoo/Desktop/gootec.github.io/blog
+   npm install
+   ```
 
-4. **Verify Deployment**
-   - Visit your site at: https://gootec.github.io
-   - Check that all sections display correctly
-   - Test responsiveness on mobile devices
+## Deployment Steps
 
-## Important Files
+1. **Local Development Testing**
+   ```bash
+   npm start
+   ```
+   
+   The website will be available at http://localhost:3000 for local testing.
 
-- **Main CV Content**: `/blog/src/App.js`
-- **Styling**: `/blog/src/App.css` and `/blog/src/index.css`
-- **Configuration**: `/blog/package.json` 
-- **HTML Template**: `/blog/public/index.html`
+2. **Deploy to GitHub Pages**
+   ```bash
+   npm run deploy
+   ```
+   
+   If you encounter issues with large files during deployment, try:
+   
+   ```bash
+   # Check file sizes
+   ls -lh /Users/twgoo/Desktop/gootec.github.io/blog/public/
+   
+   # Compress large image files if needed
+   
+   # Deploy with reduced history depth
+   npx gh-pages --depth 1 -d build
+   ```
 
-## Future Updates
+## Website Structure
 
-To update your CV in the future:
-1. Edit the content in `/blog/src/App.js`
-2. Run `npm run deploy` from the `/blog` directory
-3. GitHub Pages will update with your changes
+The website now has three main pages:
+
+1. **Home Page** - Features your profile image and two main navigation buttons (CV and PROJECTS)
+2. **CV Page** - Displays your academic background, publications, and skills
+3. **Projects Page** - Showcases your ongoing research projects and collaborations
+
+## Customizing the Projects Page
+
+The Projects page is defined in `/Users/twgoo/Desktop/gootec.github.io/blog/src/pages/Projects.js`. To add or update projects:
+
+1. Locate the project cards in the Projects.js file
+2. Follow the existing structure to add or modify projects
+3. Each project has:
+   - Title
+   - Tags
+   - Description
+   - Details (Leaders, Members, GitHub links, etc.)
+
+Example of adding a new project:
+```jsx
+<div className="project-card">
+  <div className="project-header">
+    <h2>New Project Title</h2>
+    <div className="project-tags">
+      <span className="project-tag">Project Type</span>
+    </div>
+  </div>
+  <p className="project-description">
+    Project description here.
+  </p>
+  <div className="project-details">
+    <div className="project-detail">
+      <span className="detail-label">Leader:</span>
+      <span className="detail-value">Name</span>
+    </div>
+    <div className="project-detail">
+      <span className="detail-label">My Role:</span>
+      <span className="detail-value">Role description</span>
+    </div>
+  </div>
+</div>
+```
 
 ## Troubleshooting
 
-If you encounter deployment issues:
-- Check that the repository settings have GitHub Pages enabled
-- Ensure the "homepage" field in package.json is correct
-- Verify that the gh-pages branch exists and is set as the source for GitHub Pages
+If you encounter issues:
+
+1. Make sure your profile image is in the public folder and not too large
+2. Check that all dependencies are installed (`npm install`)
+3. If routes are not working, ensure you're using HashRouter in App.js
+4. For GitHub Pages deployment issues, try using the depth parameter as shown above
